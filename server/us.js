@@ -3,21 +3,21 @@ const User = require('../models/User');
 const Weather = require('../models/Weather');
 const jwt = require('jsonwebtoken');
 
-const newAdmin = async (req, res) => {
-    let myAdmin = new Admin(req.body)
-    let token = jwt.sign({ adminId: myAdmin._id }, 'secret')
-    console.log(token);
+// const newAdmin = async (req, res) => {
+//     let myAdmin = new Admin(req.body)
+//     let token = jwt.sign({ adminId: myAdmin._id }, 'secret')
+//     console.log(token);
 
-    console.log(myAdmin);
-    try {
-        await myAdmin.save();
-        res.status(200).json({ myToken: token })
-    }
-    catch (error) {
-        res.send("cannot save new admin: ", error.message)
-    }
+//     console.log(myAdmin);
+//     try {
+//         await myAdmin.save();
+//         res.status(200).json({ myToken: token })
+//     }
+//     catch (error) {
+//         res.send("cannot save new admin: ", error.message)
+//     }
 
-}
+// }
 
 
 const getAdmin = async (req, res) => {
