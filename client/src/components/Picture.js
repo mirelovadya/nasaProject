@@ -113,8 +113,9 @@ const uploadPicture = (name, password, file) => {
     };
     console.log(`detailes ${name}/${password}/${file.name}/jpg/${file.webkitRelativePath}/${file.lastModifiedDate}`);
 
-    url = "D:\אתרא\פרויקט ענק\client\try-app\src";
-    fetch(`http://localhost:4200/uploadPicture/${name}/${password}/${file.name}/jpg/${url}/${file.lastModifiedDate}`, requestOptions)
+    // url = "D:\אתרא\פרויקט ענק\client\try-app\src";
+    url=file.webkitRelativePath;
+    fetch(`http://localhost:4200/uploadPicture/${name}/${password}/${file.name}/jpg/${file.webkitRelativePath}/${file.lastModifiedDate}`, requestOptions)
         .then(response => response.text())
         .then(result => console.log(result))
         .catch(error => console.log('error', error));
