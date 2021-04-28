@@ -6,9 +6,9 @@ let i = 3;
 
 function HistoryPicture(props) {
     const [picturs, setPicture] = useState([]);
-    
 
-    
+
+
     useEffect(() => {
         var myHeaders = new Headers();
         myHeaders.append("Authorization", `${localStorage.getItem("token")}`);
@@ -27,11 +27,11 @@ function HistoryPicture(props) {
                 console.log(`result2 ${result2}`);
 
                 setPicture(result2)
-                
+
 
             })
             .catch(error => console.log('error', error));
-    },[])
+    }, [])
 
 
     // if (i < 5) {
@@ -49,13 +49,14 @@ function HistoryPicture(props) {
                     {
                         picturs && picturs.map((item, index) =>
                             <div>
-                                <div className="col" style={{marginTop:"12%"}}>
-                                    <h2>{`picture ${index+1}`}</h2>
+                                <div className="col" style={{ marginTop: "12%" }}>
+                                    <h2>{`picture ${index + 1}`}</h2>
+                                    <h1>hi {item.media_type}</h1>
                                     {
-                                        item.mediaType === "video" ?
+                                        item.media_type === "video" ?
                                             <iframe src={`${item.url}`} alt="vidio" />
                                             :
-                                            <img src={`${item.url}`} itemType={`${item.mediaType}`} alt="image today" />
+                                            <img src={`${item.url}`} itemType={`${item.media_type}`} alt="image today" />
                                     }
                                     {/* <Image src={`${url}`} rounded className=" w-100" /> */}
                                 </div>
